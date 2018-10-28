@@ -23,6 +23,7 @@ using Athame.Settings;
 using Athame.UI.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using Microsoft.WindowsAPICodePack.Taskbar;
+using Shell32;
 
 namespace Athame.UI
 {
@@ -262,6 +263,7 @@ namespace Athame.UI
             var header = MakeGroupHeader(enqueuedItem);
             var group = new ListViewGroup(header, HorizontalAlignment.Center);
             var groupIndex = queueListView.Groups.Add(group);
+            var finalTracks = new List<string>();
             for (var i = 0; i < item.Tracks.Count; i++)
             {
                 var t = item.Tracks[i];
@@ -295,9 +297,12 @@ namespace Athame.UI
                 lvItem.SubItems.Add(t.Album.Title);
                 lvItem.SubItems.Add(BuildFlags(t.CustomMetadata));
                 lvItem.SubItems.Add(Path.Combine(destination, t.GetBasicPath(enqueuedItem.PathFormat, item)));
+
+                finalTracks.Add(t.Artist.Name + " - " + t.Title);
                 group.Items.Add(lvItem);
                 queueListView.Items.Add(lvItem);
             }
+            group.Header = MakeGroupHeader(enqueuedItem);
         }
 
         private void RemoveCurrentlySelectedTracks()
@@ -344,6 +349,8 @@ namespace Athame.UI
             isWorking = true;
             idTextBox.Enabled = false;
             dlButton.Enabled = false;
+            syncButton.Enabled = false;
+
             settingsButton.Enabled = false;
             pasteButton.Enabled = false;
             clearButton.Enabled = false;
@@ -355,6 +362,8 @@ namespace Athame.UI
             isWorking = false;
             idTextBox.Enabled = true;
             dlButton.Enabled = !String.IsNullOrWhiteSpace(idTextBox.Text);
+            syncButton.Enabled = !String.IsNullOrWhiteSpace(idTextBox.Text);
+
             settingsButton.Enabled = true;
             pasteButton.Enabled = true;
             clearButton.Enabled = true;
@@ -446,7 +455,9 @@ namespace Athame.UI
             urlValidStateLabel.Image = Resources.error;
             urlValidStateLabel.Visible = true;
             dlButton.Enabled = false;
-            
+            syncButton.Enabled = false;
+
+
             switch (resolver.Parse(idTextBox.Text))
             {
                 case UrlParseState.NullOrEmptyString:
@@ -476,6 +487,7 @@ namespace Athame.UI
                     urlValidStateLabel.Image = Resources.done;
                     urlValidStateLabel.Text = String.Format(UrlValidParseResult, resolver.ParseResult.Type, resolver.Service.Info.Name);
                     dlButton.Enabled = true;
+                    syncButton.Enabled = true;
                     break;
 
                 case UrlParseState.Exception:
@@ -526,10 +538,10 @@ namespace Athame.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ParseAndAddUrl(resolver);
+            ParseAndAddUrl(resolver, false);
         }
 
-        private void ParseAndAddUrl(UrlResolver r)
+        private void ParseAndAddUrl(UrlResolver r, bool syncMode)
         {
             if (!r.HasParsedUrl)
             {
@@ -557,20 +569,36 @@ namespace Athame.UI
             // Ask for the location if required before we begin retrieval
             var prefType = PreferenceForType(r.ParseResult.Type);
             var saveDir = prefType.SaveDirectory;
-            if (prefType.AskForLocation)
+            var folderItems = new List<string>();
+            if (prefType.AskForLocation || syncMode)
             {
-                using (var folderSelectionDialog = new FolderBrowserDialog { Description = "Select a destination for this media:" })
+                Shell shell = new Shell();
+                Folder folder = shell.BrowseForFolder((int)this.Handle, "Select a destination for this media:", 0, Program.DefaultSettings.Settings.PlaylistSync.SyncDirectory);
+                if (folder == null)
                 {
-                    if (folderSelectionDialog.ShowDialog(this) == DialogResult.OK)
-                    {
-                        saveDir = folderSelectionDialog.SelectedPath;
-                    }
-                    else
-                    {
-                        return;
-                    }
+                    return;
                 }
+                FolderItem fi = (folder as Folder3).Self;
+                saveDir = fi.Path;
+                foreach (FolderItem curr in folder.Items())
+                {
+                    folderItems.Add(Path.GetFileNameWithoutExtension(curr.Name));
+                }
+
+
+                //using (var folderSelectionDialog = new FolderBrowserDialog { Description = "Select a destination for this media:" })
+                //{
+                //    if (folderSelectionDialog.ShowDialog(this) == DialogResult.OK)
+                //    {
+                //        saveDir = folderSelectionDialog.SelectedPath;
+                //    }
+                //    else
+                //    {
+                //        return;
+                //    }
+                //}
             }
+
 
             // Build wait dialog
             var retrievalWaitTaskDialog = new TaskDialog
@@ -583,15 +611,22 @@ namespace Athame.UI
                 OwnerWindowHandle = Handle,
                 ProgressBar = new TaskDialogProgressBar { State = TaskDialogProgressBarState.Marquee }
             };
+
+            
+
             // Open handler
             retrievalWaitTaskDialog.Opened += async (o, args) =>
             {
                 LockUi();
                 var pathFormat = prefType.GetPlatformSaveFormat();
+                var finalTracks = new List<string>();
+                bool isPlaylist = false;
                 try
                 {
-                    var media = await r.ResolveAsync();
+                    var media = await r.ResolveAsync(syncMode, folderItems, finalTracks);
+                    isPlaylist = r.ParseResult.Type == MediaType.Playlist;
                     AddToQueue(r.Service, media, saveDir, pathFormat);
+                    
                 }
                 catch (ResourceNotFoundException)
                 {
@@ -617,6 +652,36 @@ namespace Athame.UI
                 idTextBox.Clear();
                 UnlockUi();
                 retrievalWaitTaskDialog.Close();
+                if (syncMode && isPlaylist)
+                {
+                    var toDelete = new List<string>();
+                    foreach (var curTrack in folderItems)
+                    {
+                        if (!finalTracks.Contains(curTrack))
+                        {
+                            toDelete.Add(curTrack);
+                        }
+                    }
+                    if (toDelete.Count > 0)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Delete " + toDelete.Count + " tracks, which is not in playlist?", "Confirm delete", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            DirectoryInfo di = new DirectoryInfo(saveDir);
+                            foreach (FileInfo file in di.GetFiles())
+                            {
+                                if (toDelete.Contains(Path.GetFileNameWithoutExtension(file.Name)))
+                                {
+                                    file.Delete();
+                                }
+
+                            }
+                        }
+                    }
+                } else if (!isPlaylist)
+                {
+                    MessageBox.Show("Can't sync if not playlist");
+                }
             };
             // Show dialog
             retrievalWaitTaskDialog.Show();
@@ -933,8 +998,21 @@ namespace Athame.UI
             if (form.ShowDialog(this) != DialogResult.OK) return;
             foreach (var formResolver in form.Resolvers)
             {
-                ParseAndAddUrl(formResolver);
+                ParseAndAddUrl(formResolver, false);
             }
+        }
+
+        private void syncButton_Click(object sender, EventArgs e)
+        {
+            //Shell shell = new Shell();
+            //Folder folder = shell.BrowseForFolder((int)this.Handle, "", 0, Program.DefaultSettings.Settings.PlaylistSync.SyncDirectory);
+            //if (folder == null)
+            //{
+            //    return;
+            //}
+            //FolderItem fi = (folder as Folder3).Self;
+
+            ParseAndAddUrl(resolver, true);
         }
     }
 }

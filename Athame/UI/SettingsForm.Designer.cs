@@ -30,6 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.generalTab = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.syncDirLabel = new System.Windows.Forms.Label();
+            this.syncDirBrowseButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.confirmExitCheckBox = new System.Windows.Forms.CheckBox();
@@ -82,8 +86,10 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.mFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.syncFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.tabControl1.SuspendLayout();
             this.generalTab.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,6 +114,7 @@
             // 
             // generalTab
             // 
+            this.generalTab.Controls.Add(this.groupBox4);
             this.generalTab.Controls.Add(this.groupBox3);
             this.generalTab.Controls.Add(this.groupBox2);
             this.generalTab.Controls.Add(this.pldSameAsAlbumTrack);
@@ -120,6 +127,48 @@
             this.generalTab.TabIndex = 0;
             this.generalTab.Text = "General";
             this.generalTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.syncDirLabel);
+            this.groupBox4.Controls.Add(this.syncDirBrowseButton);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Location = new System.Drawing.Point(7, 486);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(695, 52);
+            this.groupBox4.TabIndex = 17;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Playlist sync";
+            // 
+            // syncDirLabel
+            // 
+            this.syncDirLabel.AutoEllipsis = true;
+            this.syncDirLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.syncDirLabel.Location = new System.Drawing.Point(119, 23);
+            this.syncDirLabel.Name = "syncDirLabel";
+            this.syncDirLabel.Size = new System.Drawing.Size(489, 15);
+            this.syncDirLabel.TabIndex = 2;
+            this.syncDirLabel.Text = "Placeholder text";
+            this.syncDirLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // syncDirBrowseButton
+            // 
+            this.syncDirBrowseButton.Location = new System.Drawing.Point(614, 19);
+            this.syncDirBrowseButton.Name = "syncDirBrowseButton";
+            this.syncDirBrowseButton.Size = new System.Drawing.Size(75, 23);
+            this.syncDirBrowseButton.TabIndex = 1;
+            this.syncDirBrowseButton.Text = "Browse...";
+            this.syncDirBrowseButton.UseVisualStyleBackColor = true;
+            this.syncDirBrowseButton.Click += new System.EventHandler(this.syncDirBrowseButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 15);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Playlists directiory:";
             // 
             // groupBox3
             // 
@@ -717,6 +766,8 @@
             this.tabControl1.ResumeLayout(false);
             this.generalTab.ResumeLayout(false);
             this.generalTab.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
@@ -793,5 +844,10 @@
         private System.Windows.Forms.CheckBox preventSleepCheckBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.CheckBox watermarkTagsCheckBox;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label syncDirLabel;
+        private System.Windows.Forms.Button syncDirBrowseButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.FolderBrowserDialog syncFolderBrowserDialog;
     }
 }

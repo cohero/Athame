@@ -126,7 +126,7 @@
     <value>56, 59</value>
   </data>
   <data name="idTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>642, 23</value>
+    <value>729, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="idTextBox.TabIndex" type="System.Int32, mscorlib">
@@ -142,7 +142,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;idTextBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -169,7 +169,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="dlButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -178,7 +178,7 @@
     <value>False</value>
   </data>
   <data name="dlButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>708, 59</value>
+    <value>791, 59</value>
   </data>
   <data name="dlButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 23</value>
@@ -199,31 +199,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dlButton.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="queueListView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="queueListView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 309</value>
-  </data>
-  <data name="queueListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>783, 499</value>
-  </data>
-  <data name="queueListView.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;queueListView.Name" xml:space="preserve">
-    <value>queueListView</value>
-  </data>
-  <data name="&gt;&gt;queueListView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;queueListView.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;queueListView.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="statusCol.Text" xml:space="preserve">
     <value>Status</value>
@@ -264,80 +243,29 @@
   <data name="locCol.Width" type="System.Int32, mscorlib">
     <value>200</value>
   </data>
-  <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="queueListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 309</value>
   </data>
-  <data name="&gt;&gt;collectionProgressBar.Name" xml:space="preserve">
-    <value>collectionProgressBar</value>
+  <data name="queueListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>949, 499</value>
   </data>
-  <data name="&gt;&gt;collectionProgressBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="queueListView.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;collectionProgressBar.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;queueListView.Name" xml:space="preserve">
+    <value>queueListView</value>
   </data>
-  <data name="&gt;&gt;collectionProgressBar.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;queueListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;collectionStatusLabel.Name" xml:space="preserve">
-    <value>collectionStatusLabel</value>
-  </data>
-  <data name="&gt;&gt;collectionStatusLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;collectionStatusLabel.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;collectionStatusLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;totalStatusLabel.Name" xml:space="preserve">
-    <value>totalStatusLabel</value>
-  </data>
-  <data name="&gt;&gt;totalStatusLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;totalStatusLabel.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;totalStatusLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;totalProgressBar.Name" xml:space="preserve">
-    <value>totalProgressBar</value>
-  </data>
-  <data name="&gt;&gt;totalProgressBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;totalProgressBar.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;totalProgressBar.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 127</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>779, 147</value>
-  </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;queueListView.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;queueListView.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="collectionProgressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -346,7 +274,7 @@
     <value>6, 106</value>
   </data>
   <data name="collectionProgressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>767, 16</value>
+    <value>933, 16</value>
   </data>
   <data name="collectionProgressBar.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -427,7 +355,7 @@
     <value>6, 52</value>
   </data>
   <data name="totalProgressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>767, 16</value>
+    <value>933, 16</value>
   </data>
   <data name="totalProgressBar.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -443,6 +371,30 @@
   </data>
   <data name="&gt;&gt;totalProgressBar.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 127</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>945, 147</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="settingsButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -469,20 +421,11 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;settingsButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <metadata name="queueMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="queueMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 76</value>
-  </data>
-  <data name="&gt;&gt;queueMenu.Name" xml:space="preserve">
-    <value>queueMenu</value>
-  </data>
-  <data name="&gt;&gt;queueMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="removeTrackToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Del</value>
   </data>
@@ -513,6 +456,15 @@
   <data name="showCollectionInFileBrowserToolStripMenuItem.Text" xml:space="preserve">
     <value>Show collection in file browser</value>
   </data>
+  <data name="queueMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 76</value>
+  </data>
+  <data name="&gt;&gt;queueMenu.Name" xml:space="preserve">
+    <value>queueMenu</value>
+  </data>
+  <data name="&gt;&gt;queueMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="clearButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -520,7 +472,7 @@
     <value>True</value>
   </data>
   <data name="clearButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>660, 88</value>
+    <value>751, 85</value>
   </data>
   <data name="clearButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 15</value>
@@ -541,7 +493,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;clearButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="pasteButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -550,7 +502,7 @@
     <value>True</value>
   </data>
   <data name="pasteButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>614, 88</value>
+    <value>710, 85</value>
   </data>
   <data name="pasteButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 15</value>
@@ -571,7 +523,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pasteButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="urlValidStateLabel.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopLeft</value>
@@ -583,7 +535,7 @@
     <value>23, 5, 0, 0</value>
   </data>
   <data name="urlValidStateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>554, 36</value>
+    <value>484, 36</value>
   </data>
   <data name="urlValidStateLabel.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -601,7 +553,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;urlValidStateLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="startDownloadButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -610,7 +562,7 @@
     <value>False</value>
   </data>
   <data name="startDownloadButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>720, 280</value>
+    <value>886, 280</value>
   </data>
   <data name="startDownloadButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -631,40 +583,70 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;startDownloadButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="mMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>134, 17</value>
   </metadata>
   <data name="bulkAddToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>129, 22</value>
   </data>
   <data name="bulkAddToolStripMenuItem.Text" xml:space="preserve">
     <value>Bulk add...</value>
   </data>
   <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>129, 22</value>
   </data>
   <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Settings...</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>126, 6</value>
   </data>
   <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>129, 22</value>
   </data>
   <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
     <value>About...</value>
   </data>
   <data name="mMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 98</value>
+    <value>130, 76</value>
   </data>
   <data name="&gt;&gt;mMenu.Name" xml:space="preserve">
     <value>mMenu</value>
   </data>
   <data name="&gt;&gt;mMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="syncButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="syncButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="syncButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>884, 59</value>
+  </data>
+  <data name="syncButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="syncButton.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="syncButton.Text" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="&gt;&gt;syncButton.Name" xml:space="preserve">
+    <value>syncButton</value>
+  </data>
+  <data name="&gt;&gt;syncButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;syncButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;syncButton.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -673,7 +655,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>807, 820</value>
+    <value>973, 820</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>823, 858</value>
@@ -747,6 +729,12 @@
   <data name="&gt;&gt;showCollectionInFileBrowserToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;bulkAddToolStripMenuItem.Name" xml:space="preserve">
+    <value>bulkAddToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;bulkAddToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;settingsToolStripMenuItem.Name" xml:space="preserve">
     <value>settingsToolStripMenuItem</value>
   </data>
@@ -765,16 +753,10 @@
   <data name="&gt;&gt;aboutToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bulkAddToolStripMenuItem.Name" xml:space="preserve">
-    <value>bulkAddToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;bulkAddToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Athame.UI.AthameForm, Athame, Version=0.4.7.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Athame.UI.AthameForm, Athame, Version=0.4.8.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

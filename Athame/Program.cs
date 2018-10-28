@@ -7,11 +7,19 @@ using Athame.Core.Settings;
 using Athame.PluginAPI;
 using Athame.Settings;
 using Athame.UI;
+using Shell32;
 
 namespace Athame
 {
     public static class Program
     {
+
+
+
+
+
+
+
         private const string Tag = nameof(Program);
         public static string LogDir;
 
@@ -29,6 +37,34 @@ namespace Athame
         [STAThread]
         public static void Main(string[] args)
         {
+
+            //var tempDir = System.IO.Directory.CreateDirectory("Temp");
+            //Shell shell = new Shell();
+            //Folder folder = shell.NameSpace(tempDir.FullName);
+            //var item = folder.ParseName("test.txt");
+
+            //foreach (FolderItem file in folder.Items())
+            //{
+            //    if (file.Name == "test.txt")
+            //    {
+
+            //    }
+            //}
+            //Folder folder2 = shell.BrowseForFolder(0, "Select a destination for this media:", 0, 0);
+            //if (folder == null)
+            //{
+            //    return;
+            //}
+            //folder2.CopyHere(item);
+
+
+
+
+
+
+
+
+
             TaskDialogHelper.MainCaption = "Athame";
             // Create app instance config
             DefaultApp = new AthameApplication

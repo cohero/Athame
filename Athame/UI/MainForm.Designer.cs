@@ -59,10 +59,11 @@ namespace Athame.UI
             this.urlValidStateLabel = new System.Windows.Forms.LinkLabel();
             this.startDownloadButton = new System.Windows.Forms.Button();
             this.mMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bulkAddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bulkAddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.syncButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.queueMenu.SuspendLayout();
             this.mMenu.SuspendLayout();
@@ -247,6 +248,12 @@ namespace Athame.UI
             this.mMenu.Name = "mMenu";
             resources.ApplyResources(this.mMenu, "mMenu");
             // 
+            // bulkAddToolStripMenuItem
+            // 
+            this.bulkAddToolStripMenuItem.Name = "bulkAddToolStripMenuItem";
+            resources.ApplyResources(this.bulkAddToolStripMenuItem, "bulkAddToolStripMenuItem");
+            this.bulkAddToolStripMenuItem.Click += new System.EventHandler(this.bulkAddToolStripMenuItem_Click);
+            // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
@@ -264,17 +271,19 @@ namespace Athame.UI
             resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // bulkAddToolStripMenuItem
+            // syncButton
             // 
-            this.bulkAddToolStripMenuItem.Name = "bulkAddToolStripMenuItem";
-            resources.ApplyResources(this.bulkAddToolStripMenuItem, "bulkAddToolStripMenuItem");
-            this.bulkAddToolStripMenuItem.Click += new System.EventHandler(this.bulkAddToolStripMenuItem_Click);
+            resources.ApplyResources(this.syncButton, "syncButton");
+            this.syncButton.Name = "syncButton";
+            this.syncButton.UseVisualStyleBackColor = true;
+            this.syncButton.Click += new System.EventHandler(this.syncButton_Click);
             // 
             // MainForm
             // 
             this.AcceptButton = this.dlButton;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.syncButton);
             this.Controls.Add(this.queueListView);
             this.Controls.Add(this.startDownloadButton);
             this.Controls.Add(this.urlValidStateLabel);
@@ -333,6 +342,7 @@ namespace Athame.UI
         private System.Windows.Forms.ProgressBar collectionProgressBar;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ToolStripMenuItem bulkAddToolStripMenuItem;
+        private System.Windows.Forms.Button syncButton;
     }
 }
 

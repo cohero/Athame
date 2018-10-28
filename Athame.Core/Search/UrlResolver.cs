@@ -146,7 +146,7 @@ namespace Athame.Core.Search
         /// Resolves the last parsed URL to a media collection object.
         /// </summary>
         /// <returns>An <see cref="IMediaCollection"/> according to the <see cref="UrlParseResult.Type"/> property.</returns>
-        public async Task<IMediaCollection> ResolveAsync()
+        public async Task<IMediaCollection> ResolveAsync(bool syncMode, List<string> folderItems, List<string> finalTracks)
         {
             if (!HasParsedUrl)
             {
@@ -169,9 +169,30 @@ namespace Athame.Core.Search
                     {
                         var items = Service.GetPlaylistItems(ParseResult.Id, 100);
                         await items.LoadAllPagesAsync();
-                        playlist.Tracks = items.AllItems;
+                        var allItems = items.AllItems;
+                       
+                        if (syncMode)
+                        {
+
+                            var toKeep = new List<Track>();
+                            foreach (var track in allItems)
+                            {
+                                var name = track.Artist.Name + " - " + track.Title;
+                                finalTracks.Add(name);
+                                if (!folderItems.Contains(name))
+                                {
+                                    toKeep.Add(track);
+                                }
+                            }
+                            playlist.Tracks = toKeep;
+                        } else
+                        {
+                            playlist.Tracks = allItems;
+                        }
                     }
                     return playlist;
+
+            
 
                 case MediaType.Artist:
                     throw new NotImplementedException("Artist URLs aren't currently implemented.");

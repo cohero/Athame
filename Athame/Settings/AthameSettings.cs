@@ -28,6 +28,16 @@ namespace Athame.Settings
         }
     }
 
+    public class PlaylistSyncPreference : ICloneable
+    {
+        public string SyncDirectory { get; set; }
+
+        public object Clone()
+        {
+            return new PlaylistSyncPreference { SyncDirectory = String.Copy(SyncDirectory) };
+        }
+    }
+
     public class WindowPreference : ICloneable
     {
         public Point Location { get; set; }
@@ -63,6 +73,10 @@ namespace Athame.Settings
                 SaveDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 SaveFormat = "{PlaylistName}/{Title} - {AlbumArtistOrArtist}"
             };
+            PlaylistSync = new PlaylistSyncPreference
+            {
+                SyncDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic)
+            };
             PlaylistSavePreferenceUsesGeneral = false;
             MainWindowPreference = new WindowPreference();
             SavePlaylist = SavePlaylistSetting.DontSave;
@@ -78,6 +92,7 @@ namespace Athame.Settings
         public bool PlaylistSavePreferenceUsesGeneral { get; set; }
         public WindowPreference MainWindowPreference { get; set; }
         public SavePlaylistSetting SavePlaylist { get; set; }
+        public PlaylistSyncPreference PlaylistSync { get; set; }
 
         public bool ConfirmExit { get; set; }
         public bool IgnoreSaveArtworkWithPlaylist { get; set; }
@@ -99,7 +114,8 @@ namespace Athame.Settings
                 PlaylistSavePreferenceUsesGeneral = PlaylistSavePreferenceUsesGeneral,
                 KeepSystemAwake = KeepSystemAwake,
                 ConfirmExit = ConfirmExit,
-                MainWindowPreference = (WindowPreference)MainWindowPreference.Clone()
+                MainWindowPreference = (WindowPreference)MainWindowPreference.Clone(),
+                PlaylistSync = (PlaylistSyncPreference)PlaylistSync.Clone()
             };
         }
     }

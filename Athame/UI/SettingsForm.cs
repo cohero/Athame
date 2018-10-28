@@ -9,6 +9,7 @@ using Athame.Core.Settings;
 using Athame.Core.Utils;
 using Athame.PluginAPI.Service;
 using Athame.Settings;
+using Shell32;
 
 namespace Athame.UI
 {
@@ -42,6 +43,9 @@ namespace Athame.UI
             pldAskWhereToSaveRadioButton.Checked = defaults.PlaylistSavePreference.AskForLocation;
             pldSaveLocLabel.Text = defaults.PlaylistSavePreference.SaveDirectory;
             pldPathFormatTextBox.Text = defaults.PlaylistSavePreference.SaveFormat;
+
+            // Sync save
+            syncDirLabel.Text = defaults.PlaylistSync.SyncDirectory;
 
             // Album artwork save setting
             switch (defaults.AlbumArtworkSaveFormat)
@@ -306,5 +310,23 @@ namespace Athame.UI
         {
             defaults.WriteWatermarkTags = watermarkTagsCheckBox.Checked;
         }
+
+        private void syncDirBrowseButton_Click(object sender, EventArgs e)
+        {
+
+            Shell shell = new Shell();
+            Folder folder = shell.BrowseForFolder((int)this.Handle, "", 0, 0);
+            if (folder == null)
+            {
+                return;
+            }
+            FolderItem fi = (folder as Folder3).Self;
+            defaults.PlaylistSync.SyncDirectory = fi.Path;
+            syncDirLabel.Text = defaults.PlaylistSync.SyncDirectory;
+
+        }
+
+        //private void
+
     }
 }
