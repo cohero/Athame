@@ -457,6 +457,10 @@ namespace Athame.UI
             dlButton.Enabled = false;
             syncButton.Enabled = false;
 
+            if (idTextBox.Text.StartsWith(@"https://tidal.com/browse/"))
+            {
+                idTextBox.Text = idTextBox.Text.Replace(@"https://tidal.com/browse/", @"https://listen.tidal.com/");
+            }
 
             switch (resolver.Parse(idTextBox.Text))
             {
@@ -678,7 +682,7 @@ namespace Athame.UI
                             }
                         }
                     }
-                } else if (!isPlaylist)
+                } else if (!isPlaylist && syncMode)
                 {
                     MessageBox.Show("Can't sync if not playlist");
                 }
